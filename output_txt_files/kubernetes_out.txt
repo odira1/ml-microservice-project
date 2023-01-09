@@ -1,0 +1,5 @@
+namespace/ml-microservices created
+deployment.apps/ml-microservice created
+NAME                               READY   STATUS              RESTARTS   AGE   IP       NODE             NOMINATED NODE   READINESS GATES
+ml-microservice-5868489cb4-26kdt   0/1     ContainerCreating   0          0s    <none>   docker-desktop   <none>           <none>
+service/ml-microservice-svc exposed
