@@ -32,3 +32,15 @@ Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdo
 [2023-01-11 07:33:53,525] INFO in app: Prediction: 
 [20.35373177134412]
 192.168.65.3 - - [11/Jan/2023 07:33:53] "POST /predict HTTP/1.1" 200 -
+
+# Please paste the port forwarding output in the Kubernetes output file.
+Forwarding from 127.0.0.1:65462 -> 80
+Forwarding from [::1]:65462 -> 80
+Handling connection for 65462
+
+# Similarly, please paste the JSON output of executing the main_predictions.sh file.
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
