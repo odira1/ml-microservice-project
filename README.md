@@ -44,7 +44,36 @@ source .devops/bin/activate
 
 ### Kubernetes Steps
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
-* Create Flask app in Container
-* Run via kubectl
+* **Setup and Configure Docker locally**
+  * To set up and configure Docker locally, you will need to have the following installed on your system:
+    - Docker
+  * Once you have Docker installed, you can verify that it is running on your system by running the following command:
+    * `docker -v` This will show you the version of Docker that is currently installed.
+  * To test that your installation is working properly, you can run the following command:
+    * `docker run hello-world` This command will run the "hello-world" image, which is a small image that is built to test whether your Docker installation is working correctly.
+
+* **Setup and Configure Kubernetes locally**
+  * Finally, deploy the 
+  * To set up and configure Kubernetes locally, you will need to have the following installed on your system:
+    - Docker
+    - Minikube
+    - kubectl
+  * Once you have these installed, you can start Minikube with the command:
+    * `minikube start`
+  * Next, you will need to configure kubectl to communicate with the Minikube cluster. This can be done with the command:
+    * `minikube kubectl config current-context`
+  
+* **Create Flask app in Container**
+  * To create the Flask app in a container, you will need need the `dockerfile` in the repo.
+    * build and run the image with the `run_docker.sh` script
+    * push the created image to your container repository by running the `upload_docker.sh` script
+    * **Note**: you may need to modify the username in the `upload_docker.sh` script and you must ensure to 
+      * create the DOCKER_PASSWORD env variable before running the script by running `export DOCKER_PASSWORD=<<your docker password>>`
+* **Run via kubectl**
+  * Now that you have your container image built, you can run it via kubectl. First, create a Kubernetes deployment with the `run_kubernetes.sh` script:
+    * chmod u+x run_kubernetes.sh && ./run_kubernetes.sh
+  * **Note**:
+    - you may want to validate the cluster status, pods and services are running by running `kubectl get pods`, `kubectl get services`, and `kubectl get deployment`
+    - If you running on non-linux, you may need to do port forwarding from the minikube vm to the localhost.
+    make sure the ports are not occupied or blocked by firewall or another service.
+
